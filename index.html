@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="codemirror-5.65.14/lib/codemirror.css">
+<script src="codemirror-5.65.14/lib/codemirror.js"> </script>
+<script src="addon/selection/selection.js"></script>
+<script src="addon/edit/matchbrackets.js"></script>
+<script src="codemirror-5.65.14/addon/comment/comment.js"></script>
+<script src="codemirror-5.65.14/mode/python/python.js"></script>
+<script src="codemirror-5.65.14/mode/clike/clike.js"></script>
+<script src="codemirror-5.65.14/mode/fortran/fortran.js"></script>
+<script src="codemirror-5.65.14/mode/go/go.js"></script>
+<script src="codemirror-5.65.14/mode/ruby/ruby.js"></script>
+<script src="codemirror-5.65.14/mode/vb/vb.js"></script>
+
+
+
+
+<!-- <style>
+  .btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 0.5rem; /* Adjust as needed for spacing */
+    width: 2.3rem; /* Adjust size as needed */
+    height: 2.3rem; 
+}
+</style> -->
+
+<link rel="stylesheet" href="styles/style-main.css">
+<script src="codemirror-5.65.14/mode/clike/clike.js"> </script>
+<link rel="stylesheet" href="codemirror-5.65.14/theme/monokai.css">
+<link rel="stylesheet" href="codemirror-5.65.14/theme/blackboard.css">
+<link rel="stylesheet" href="codemirror-5.65.14/theme/eclipse.css">
+<link rel="stylesheet" href="codemirror-5.65.14/theme/gruvbox-dark.css">
+<link rel="stylesheet" href="codemirror-5.65.14/theme/hopscotch.css">
+<link rel="stylesheet" href="codemirror-5.65.14/theme/icecoder.css">
+<link rel="stylesheet" href="codemirror-5.65.14/theme/juejin.css">
+<link rel="stylesheet" href="codemirror-5.65.14/theme/material-palenight.css">
+<link rel="stylesheet" href="codemirror-5.65.14/theme/mbo.css">
+<link rel="stylesheet" href="codemirror-5.65.14/theme/mdn-like.css">
+<link rel="stylesheet" href="codemirror-5.65.14/theme/midnight.css">
+<link rel="stylesheet" href="codemirror-5.65.14/theme/moxer.css">
+<link rel="stylesheet" href="codemirror-5.65.14/theme/neat.css">
+<link rel="stylesheet" href="codemirror-5.65.14/theme/night.css">
+<link rel="stylesheet" href="codemirror-5.65.14/theme/paraiso-light.css">
+<link rel="stylesheet" href="codemirror-5.65.14/theme/seti.css">
+<link rel="stylesheet" href="codemirror-5.65.14/theme/yonce.css">
+
+
+<script src="codemirror-5.65.14/addon/edit/closebrackets.js"> </script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+
+<body style="background-color: rgb(129, 129, 129)">
+<div class="row m-3">
+  <div class="col">
+    <div class="d-flex justify-content-between mb-2 bg-dark rounded-pill p-2" style="height: 52.8px;">
+      <div class="col-12 w-25" style="height: 100%; position: relative;">
+        <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
+        <select class="form-select lang-select" id="inlineFormSelectPref" onfocus='this.size=6;' onblur='this.size=1;' 
+        onchange='this.size=1; this.blur();' style="z-index: 100;">
+          <option selected value="no-lang">Select language</option>
+          <option value="csharp"> C# </option>
+          <option value="cpp17"> C++ </option>
+          <option value="fortran"> Fortran </option>
+          <option value="go"> GO lang </option>
+          <option value="java"> Java </option>
+          <option value="python3"> Python 3 </option>
+          <option value="ruby"> Ruby </option>
+          <option value="scala"> Scala </option>
+          <option value="vbn"> VB.Net </option>
+
+        </select>
+      </div>
+      <div class="theme-div" style="height: 100%; position: relative;">
+        <label class="visually-hidden" for="themeSelect">Select Theme</label>
+        <select class="form-select theme-select" id="themeSelect"  onfocus='this.size=7;' onblur='this.size=1;' 
+        onchange='this.size=1; this.blur();' style="z-index: 100;">
+        </select>
+      </div>
+      <div>
+        <button type="button" id="run" class="btn glow-on-hover px-2 mx-2"> <span class="tooltip fade" data-title="Run code"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </button>
+        <button type="button" id="toggleCommentBtn" class="btn cm-btn px-2 mx-2">  <span class="tooltip fade" data-title="Comment selection"> <h6 style="margin-bottom: 3px; font-weight: 700;"> // </h6> </span> </button>
+        <button type="button" id="undoBtn" class="btn ud-btn px-2 mx-2"> <span class="tooltip fade" data-title="Undo"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </button>
+        <button type="button" id="redoBtn" class="btn rd-btn px-2 mx-2"> <span class="tooltip fade" data-title="Redo"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </button>
+        <button type="button" class="btn cp-btn px-2 mx-2" onclick="copyEditorToClipboard()"> <span class="tooltip fade" data-title="Copy"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </button>
+        <button type="button" class="btn rf-btn px-2 mx-2" onclick="clearAll()"> <span class="tooltip fade" data-title="Refresh"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </button>  
+        <button type="button" class="btn cr-btn px-2 ml-2" onclick="clearVal()"> <span class="tooltip fade" data-title="Clear editor"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </button>
+      </div> 
+    </div>
+      <textarea type="text" id="editor" class="form-control" aria-label="First name"> </textarea>
+  </div>
+  <div class="col d-flex flex-column rounded-5 bg-dark px-4">
+    <div class="h-75">
+      <label for="Input" class="text-light mt-4 mb-2"> INPUT </label>
+      <textarea type="text" id="input" class="i-o form-control rounded-4 h-75" aria-label="Last name"> </textarea>
+    </div>
+    <div class="h-75">
+      <label for="Output" class="text-light mb-2"> OUTPUT </label>
+      <textarea type="text" id="output" class="i-o form-control rounded-4 h-75" aria-label="Last name" readonly> </textarea>
+    </div>
+  </div>
+</div>
+</body>
+<script>
+    document.getElementById("themeSelect").addEventListener("focus", function () {
+      this.classList.add("expanding");
+    });
+
+    document.getElementById("themeSelect").addEventListener("blur", function () {
+      this.classList.remove("expanding");
+    });
+
+
+    document.getElementById("inlineFormSelectPref").addEventListener("focus", function () {
+      this.classList.add("expanding");
+    });
+
+    document.getElementById("inlineFormSelectPref").addEventListener("blur", function () {
+      this.classList.remove("expanding");
+    });
+
+    
+    var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+        mode: "text/x-c++src",
+        theme: "monokai",
+        lineNumbers: true,
+        autoCloseBrackets: true,  
+        historyEventDelay: 400 
+    })
+    var width=window.innerWidth
+    var input = document.getElementById("input")
+    var output = document.getElementById("output")
+    var run = document.getElementById("run")
+
+    editor.setSize(0.7*width, "500")
+
+
+    const themeOptions = [
+    { name: "Theme: Monokai", value: "monokai" },
+    { name: "Blackboard", value: "blackboard" },
+    { name: "Eclipse", value: "eclipse" },
+    { name: "Gruvbox-dark", value: "gruvbox-dark" },
+    { name: "Hopscotch", value: "hopscotch" },
+    { name: "Icecoder", value: "icecoder" },
+    { name: "Juejin", value: "juejin" },
+    { name: "Material-palenight", value: "material-palenight" },
+    { name: "Mbo", value: "mbo" },
+    { name: "Mdn-like", value: "mdn-like" },
+    { name: "Midnight", value: "midnight" },
+    { name: "Moxer", value: "moxer" },
+    { name: "Neat", value: "neat" },
+    { name: "Night", value: "night" },
+    { name: "Paraiso-light", value: "paraiso-light" },
+    { name: "Seti", value: "seti" },
+    { name: "Yonce", value: "yonce" }
+    ];
+
+    const themeSelect = document.getElementById('themeSelect');
+
+    themeOptions.forEach(option => {
+      const optionElement = document.createElement("option");
+      optionElement.value = option.value;
+      optionElement.textContent = option.name;
+      themeSelect.appendChild(optionElement);
+    });
+
+    themeSelect.addEventListener('change', function() {
+    const selectedTheme = themeSelect.value;
+    editor.setOption('theme', selectedTheme);
+    });
+
+    
+
+    /*
+    ayu-dark o
+    bespin o
+    blackboard p
+    eclipse p
+    gruvbox-dark p
+    hopscotch p
+    icecoder p
+    juejin p
+    lesser-dark o
+    liquibyte o
+    lucano o
+    yonce p
+    vibrant-ink o
+    tomorrow-night-eighties o
+    seti p
+    rubyblue o
+    paraiso-light p
+    night p
+    neat p
+    moxer p
+    midnight p
+    mdn-like p
+    mbo p
+    material-palenight p
+    material-darker o
+    default p
+    */
+
+    
+    document.getElementById("undoBtn").addEventListener("click", function() {
+      editor.undo();
+    });
+
+    document.getElementById("redoBtn").addEventListener("click", function() {
+      editor.redo();
+    });
+
+
+
+    function clearAll(){ //Refresh
+      editor.setValue("");
+      input.value="";
+      output.value="";
+    }
+
+    function clearVal(){ //Clear editor
+      //var editoor=document.getElementById("editor")
+      editor.setValue("");
+    }
+
+    function copyEditorToClipboard() {
+      var editorValue = editor.getValue();
+      if (editorValue) {
+        // Create a temporary textarea element and set its value to the editor content.
+        var tempTextarea = document.createElement("textarea");
+        tempTextarea.value = editorValue;
+
+        // Append the temporary textarea to the document.
+        document.body.appendChild(tempTextarea);
+        // Select the text inside the textarea.
+        tempTextarea.select();
+
+        // Execute the copy command.
+        document.execCommand("copy");
+
+        // Remove the temporary textarea from the document.
+        document.body.removeChild(tempTextarea);
+
+        // Optionally, you can show a message to indicate that the copy operation was successful.
+        alert("Code copied to clipboard!");
+      }
+    }
+    
+    var option=document.getElementById("inlineFormSelectPref")
+    option.addEventListener("change", function(){
+      if(option.value=="java"){
+        editor.setOption("mode", "text/x-java")
+        editor.setValue(`public class Main {
+
+    public static void main(String []args) {
+      
+    }
+}`)
+      }
+      else if(option.value=="python3"){
+        editor.setOption("mode", "text/x-python")
+        editor.setValue("")
+      }
+      else if(option.value=="cpp17"){
+        editor.setOption("mode", "text/x-c++src")
+        editor.setValue("")
+      }
+      else if(option.value=="csharp"){
+        editor.setOption("mode", "text/x-csharp")
+        editor.setValue("")
+      }else if(option.value=="vbn"){
+        editor.setOption("mode", "text/x-vb")
+        editor.setValue("")
+      }
+      else if(option.value=="ruby"){
+        editor.setOption("mode", "text/x-ruby")
+        editor.setValue("")
+      }
+      else if(option.value=="go"){
+        editor.setOption("mode", "text/x-go")
+        editor.setValue("")
+      }
+      else if(option.value=="scala"){
+        editor.setOption("mode", "text/x-scala")
+        editor.setValue("")
+      }
+      else if(option.value=="fortran"){
+        editor.setOption("mode", "text/x-fortran")
+        editor.setValue("")
+      }
+
+    })
+    var code;
+    run.addEventListener("click", async function () {
+      code={
+        code:editor.getValue(),
+        input: input.value,
+        lang:option.value
+      }
+      console.log(code)
+      try{
+        var oData = await fetch("http://localhost:8000/compile", {
+        method:"POST",
+        headers: {
+          "Content-Type":"application/json"
+          
+        },
+        body:JSON.stringify(code)
+      })
+    }
+    catch(e) {
+        console.log("Type error caught")
+    }
+      try{
+        var d = await oData.json()
+        output.value = d.output
+      }
+      catch(TypeError){
+        console.log("TypeError Raised: Cannot read properties of undefined (reading 'json')")
+      }
+      
+    })
+
+    let isCommented = false;
+
+    function toggleComment() {
+    const doc = editor.getDoc();
+    const selections = editor.listSelections();
+    if (selections.length === 0) return; // No lines selected
+
+    selections.forEach((sel) => {
+      for (let line = sel.from().line; line <= sel.to().line; line++) {
+        const text = doc.getLine(line);
+        if (text.trim() === "") continue;
+
+        if (isCommented) {
+          // Uncomment based on the selected language
+          const commentSymbol = getCommentSymbol(editor.getOption("mode"));
+          const commentIndex = text.indexOf(commentSymbol);
+          if (commentIndex !== -1) {
+            doc.replaceRange("", { line, ch: commentIndex }, { line, ch: commentIndex + commentSymbol.length + 1 });
+          }
+        } else {
+          // Comment based on the selected language
+          const commentSymbol = getCommentSymbol(editor.getOption("mode"));
+          doc.replaceRange(commentSymbol + " ", { line, ch: 0 });
+        }
+      }
+    });
+
+    isCommented = !isCommented;
+    }
+
+    document.getElementById("toggleCommentBtn").addEventListener("click", function () {
+    toggleComment();
+    });
+
+    /* PART OF THE PRECEDING AND FOLLOWING CODE
+    const selectedLanguage = option.value;
+    editor.setOption("mode", getEditorMode(selectedLanguage));
+ 
+
+    function getEditorMode(selectedLanguage) {
+      switch (selectedLanguage) {
+        case "Java":
+          return "text/x-java";
+        case "C++":
+          return "text/x-c++src";
+        case "Python":
+          return "text/x-python";
+        default:
+          return "text/x-c++src"; // Default to C++ mode for unknown languages
+      }
+    } */
+
+    function getCommentSymbol(mode) {
+      if(option.value=="java" || option.value=="csharp" || option.value=="go") {
+        return "//"
+      }
+      else if(option.value=="cpp17" || option.value=="scala") {
+        return "//"
+      }
+      else if(option.value=="python3" || option.value=="ruby"){
+        return "#"
+      }
+      else if(option.value=="fortran") {
+        return "!"
+      }
+      else if(option.value=="vbn") {
+        return "'"
+      }
+      
+      return "?"
+      
+    } 
+
+
+</script>
+</html>
