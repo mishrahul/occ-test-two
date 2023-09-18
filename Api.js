@@ -1,17 +1,15 @@
 const express = require("express")
 const  app = express()
 const bodyP = require("body-parser")
-// const compiler = require("compilex")
-// const options = { stats: true }
-// const currentTime = new Date().toLocaleTimeString();
-require('dotenv').config(); // Load environment variables from .env file
+
+require('dotenv').config(); 
 const port = process.env.PORT || 8000;
 const ctid = process.env.IDC;
 const ctsk = process.env.SKC;
 
 
 
-// compiler.init(options)
+
 app.use(bodyP.json())
 app.use("/codemirror-5.65.14", express.static("codemirror-5.65.14"))
 app.use("/styles", express.static("styles"));
@@ -65,90 +63,6 @@ function (error, response, body) {
     
 })
  
-/*   
-   try{
-        if(lang=="no-lang") {
-            res.send({output:"No language selected!"})
-        }
-        if(lang=="CPP") {
-            if(!input) {
-                var envData = { OS : "windows" , cmd : "g++", options:{timeout:10000}}; // (uses g++ command to compile)
-                compiler.compileCPP(envData , code , function (data) {
-                    if(data.output) {
-                    res.send(data);
-                    }
-                    else {
-                    res.send({output:"An error occured"})
-                    }
-        
-                });
-            } 
-            else{
-                var envData = { OS : "windows" , cmd : "g++", options:{timeout:10000}}; // (uses g++ command to compile )
-                compiler.compileCPPWithInput(envData , code , input , function (data) {
-                    if(data.output) {
-                    res.send(data);
-                    }
-                    else {
-                    res.send({output:"An error occured"})
-                    }
-                });
-            }
-        }
-        else if(lang=="Java") {
-            if(!input) {
-                var envData = { OS : "windows"}; 
-                compiler.compileJava( envData , code , function(data){
-                    if(data.output) {
-                    res.send(data);
-                    }
-                    else {
-                        res.send({output:"An error occured"})
-                    }
-                });    
-            }
-            else {
-                var envData = { OS : "windows"}; 
-                compiler.compileJavaWithInput( envData , code , input ,  function(data){
-                    if(data.output) {
-                    res.send(data);
-                    }
-                    else {
-                        res.send({output:"An error occured"})
-                    }
-                });
-            }
-        }
-        else if(lang=="Python") {
-            if(!input) {
-                var envData = { OS : "windows"}; 
-                compiler.compilePython( envData , code , function(data){
-                    if(data.output) {
-                    res.send(data);
-                    }
-                    else {
-                        res.send({output:"An error occured"})
-                    }
-                });
-            }
-            else {
-                var envData = { OS : "windows"}; 
-                compiler.compilePythonWithInput( envData , code , input ,  function(data){
-                    if(data.output) {
-                    res.send(data);
-                    }
-                    else {
-                        res.send({output:"An error occured"})
-                    }        
-                });
-            } 
-        }
-    }
-   
-   catch(e) {
-        console.log("error at catch")
-    }
-*/
 })
 
 

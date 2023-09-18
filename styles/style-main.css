@@ -327,10 +327,10 @@ opacity: 100%;
   } 
   @keyframes expandSelect {
     0% {
-      height: 36.8px; /* Initial width */
+      height: 36.8px; 
     }
     100% {
-      height:350px; /* Expanded width */
+      height:350px; 
     }
   }
   
@@ -340,8 +340,8 @@ opacity: 100%;
   }
   
   .theme-select:focus {
-    width: 180px; /* You can keep this if you want */
-    max-height: 350px; /* Set a higher maximum height for expansion on focus */
+    width: 180px; 
+    max-height: 350px; 
   }
   
   .theme-select option {
@@ -354,7 +354,6 @@ opacity: 100%;
   }
   
   .theme-select option:hover {
-  /*#0ce717 */
     background-color: #0ce717;
     color: black;
     border-radius: 20px;
@@ -375,13 +374,13 @@ opacity: 100%;
     width: 8px;
   }
   
-  /* #fff06b, #ff0866 */
+
   .theme-select::-webkit-scrollbar-thumb {
     background: linear-gradient(to bottom, #b2dfdb, #6cc1e2);
         border-radius: 8px;
   }
 
-  /* color: #ff780a; */
+
 
 
 
