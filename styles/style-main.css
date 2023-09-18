@@ -5,8 +5,8 @@
     align-items: center;
     border: none;
     border-radius: 50%;
-    padding: 0.5rem; /* Adjust as needed for spacing */
-    width: 2.3rem; /* Adjust size as needed */
+    padding: 0.5rem; 
+    width: 2.3rem; 
     height: 2.3rem; 
 }
 
@@ -24,7 +24,7 @@
     position: relative;
     z-index: 1;
     background-image: url('run3_img1.png');
-    background-size: 50% 50%; /* Resize image to 50% width and 50% height of the button */
+    background-size: 50% 50%; 
     background-repeat: no-repeat;
     background-position: 55% center;
 }
@@ -50,7 +50,7 @@
 .glow-on-hover:active {
     color: #ffe608;
     background-image: url('run3_img1.png');
-    background-size: 50% 50%; /* Resize image to 50% width and 50% height of the button */
+    background-size: 50% 50%; 
     background-repeat: no-repeat;
     background-position: 55% center;
 
@@ -59,7 +59,7 @@
 .glow-on-hover:active:after {
     background: transparent;
     background-image: url('run3_img1.png');
-    background-size: 50% 50%; /* Resize image to 50% width and 50% height of the button */
+    background-size: 50% 50%; 
     background-repeat: no-repeat;
     background-position: 55% center;
 }
@@ -79,7 +79,7 @@
     top: 0;
     border-radius: 50%;
     background-image: url('run3_img1.png');
-    background-size: 50% 50%; /* Resize image to 50% width and 50% height of the button */
+    background-size: 50% 50%; 
     background-repeat: no-repeat;
     background-position: 55% center;
 }
@@ -103,7 +103,7 @@
 .ud-btn{
     background-color: #e22929;
     background-image: url('ud_img1.png');
-    background-size: 50% 50%; /* Resize image to 50% width and 50% height of the button */
+    background-size: 50% 50%; 
     background-repeat: no-repeat;
     background-position: center;
 
@@ -117,7 +117,7 @@
 .rd-btn{
     background-color: #32cd32;
     background-image: url('rd_img1.png');
-    background-size: 50% 50%; /* Resize image to 50% width and 50% height of the button */
+    background-size: 50% 50%; 
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -129,7 +129,7 @@
 .cp-btn{
   background-color:  #5f14a5;
   background-image: url('cp_img1.png');
-  background-size: 50% 50%; /* Resize image to 50% width and 50% height of the button */
+  background-size: 50% 50%; 
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -143,7 +143,7 @@
 .rf-btn{
   background-color: #00ccff;
   background-image: url('rf_img1.png');
-  background-size: 50% 50%; /* Resize image to 50% width and 50% height of the button */
+  background-size: 50% 50%;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -155,7 +155,7 @@
 .cr-btn{
   background-color: #ff7b00;
   background-image: url('cr_img1.png');
-  background-size: 50% 50%; /* Resize image to 50% width and 50% height of the button */
+  background-size: 50% 50%; 
   background-repeat: no-repeat;
   background-position: center;
   margin-left: 8px;
@@ -238,12 +238,6 @@ opacity: 100%;
 
 
 
-
-
-/*
-
-*/
-
 .lang-select {
   background-color: #6d6d6d;
   border: none;
@@ -252,31 +246,28 @@ opacity: 100%;
   width: 200px;
   height: 36.8px;
   position: absolute;
-    /* Set your desired width */
-  transition: height 0.675s ease; /* Apply a smooth width transition */
-  overflow: hidden; /* Apply a smooth transition to max-height */
-  /* Add this line to enable vertical scrollbar */
-  overflow-y: scroll; /* Add this line to enable vertical scrollbar */
+  transition: height 0.675s ease; 
+  overflow: hidden; 
+  overflow-y: scroll;
   font-weight: bold;
 } 
 @keyframes langExpandSelect {
   0% {
-    height: 36.8px; /* Initial width */
+    height: 36.8px; 
   }
   100% {
-    height:325px; /* Expanded width */
+    height:325px; 
   }
 }
 
-/* Apply animation when the select is clicked */
 .lang-select.expanding {
   animation: langExpandSelect 0.675s ease forwards;
   z-index: 51;
 }
 
 .lang-select:focus {
-  width: 200px; /* You can keep this if you want */
-  max-height: 335px; /* Set a higher maximum height for expansion on focus */
+  width: 200px; 
+  max-height: 335px; /* higher maximum height for expansion on focus */
 }
 
 .lang-select option {
@@ -315,7 +306,7 @@ opacity: 100%;
 }
 
   .theme-div{
-    position: relative; /* Needed for positioning properties to work */
+    position: relative; /* needed for positioning properties to work */
     left: -180px;
   }
 
@@ -329,10 +320,9 @@ opacity: 100%;
     width: 180px;
     height: 36.8px;
     position: absolute;
-      /* Set your desired width */
-    transition: height 0.65s ease; /* Apply a smooth width transition */
-    overflow: hidden; /* Apply a smooth transition to max-height */
-    overflow-y: scroll; /* Add this line to enable vertical scrollbar */
+    transition: height 0.65s ease; /* a smooth width transition */
+    overflow: hidden; /*  a smooth transition to max-height */
+    overflow-y: scroll; /*  to enable vertical scrollbar */
 
   } 
   @keyframes expandSelect {
@@ -344,7 +334,6 @@ opacity: 100%;
     }
   }
   
-  /* Apply animation when the select is clicked */
   .theme-select.expanding {
     animation: expandSelect 0.65s ease forwards;
     z-index: 51;
@@ -392,58 +381,7 @@ opacity: 100%;
         border-radius: 8px;
   }
 
-
-  
-  
   /* color: #ff780a; */
 
-  /* 
-  .theme-select {
-    background-color: #6d6d6d;
-    border: none;
-    color: #fafafa;
-    border-radius: 20px;
-    width: 200px;
-    position: fixed;
-    
-  }
-  
-  .theme-select:focus {
-    width: 200px;
-  }
-  
-  .theme-select option {
-    background-color: #6d6d6d;
-    color: #fafafa;
-    padding: 5px;
-    transition: all 0.3s ease;
-  }
-  
-  .theme-select option:hover {
-    background-color: #0ce717;
-    color: black;
-    font-weight: 650;
-    border-radius: 20px;
-    padding: 5px;
-  }
-  
-  .theme-select option:checked {
-    border-radius: 8px;
-  }
-  
-  .theme-select::-ms-expand {
-    border-radius: 5px;
-    width: 50px;
-  }
-  
-  .theme-select::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  .theme-select::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 8px;
-  }
-  
 
-    */
+

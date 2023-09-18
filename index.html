@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Online Code Compiler</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="codemirror-5.65.14/lib/codemirror.css">
@@ -18,20 +18,6 @@
 <script src="codemirror-5.65.14/mode/ruby/ruby.js"></script>
 <script src="codemirror-5.65.14/mode/vb/vb.js"></script>
 
-
-
-
-<!-- <style>
-  .btn {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    padding: 0.5rem; /* Adjust as needed for spacing */
-    width: 2.3rem; /* Adjust size as needed */
-    height: 2.3rem; 
-}
-</style> -->
 
 <link rel="stylesheet" href="styles/style-main.css">
 <script src="codemirror-5.65.14/mode/clike/clike.js"> </script>
@@ -59,7 +45,7 @@
 </head>
 
 
-<body style="background-color: rgb(129, 129, 129)">
+<body style="background-color: rgb(141, 141, 141)">
 <div class="row m-3">
   <div class="col">
     <div class="d-flex justify-content-between mb-2 bg-dark rounded-pill p-2" style="height: 52.8px;">
@@ -178,38 +164,7 @@
     editor.setOption('theme', selectedTheme);
     });
 
-    
-
-    /*
-    ayu-dark o
-    bespin o
-    blackboard p
-    eclipse p
-    gruvbox-dark p
-    hopscotch p
-    icecoder p
-    juejin p
-    lesser-dark o
-    liquibyte o
-    lucano o
-    yonce p
-    vibrant-ink o
-    tomorrow-night-eighties o
-    seti p
-    rubyblue o
-    paraiso-light p
-    night p
-    neat p
-    moxer p
-    midnight p
-    mdn-like p
-    mbo p
-    material-palenight p
-    material-darker o
-    default p
-    */
-
-    
+ 
     document.getElementById("undoBtn").addEventListener("click", function() {
       editor.undo();
     });
@@ -220,21 +175,20 @@
 
 
 
-    function clearAll(){ //Refresh
+    function clearAll(){ 
       editor.setValue("");
       input.value="";
       output.value="";
     }
 
-    function clearVal(){ //Clear editor
-      //var editoor=document.getElementById("editor")
+    function clearVal(){ 
       editor.setValue("");
     }
 
     function copyEditorToClipboard() {
       var editorValue = editor.getValue();
       if (editorValue) {
-        // Create a temporary textarea element and set its value to the editor content.
+        
         var tempTextarea = document.createElement("textarea");
         tempTextarea.value = editorValue;
 
@@ -249,7 +203,6 @@
         // Remove the temporary textarea from the document.
         document.body.removeChild(tempTextarea);
 
-        // Optionally, you can show a message to indicate that the copy operation was successful.
         alert("Code copied to clipboard!");
       }
     }
@@ -363,23 +316,6 @@
     toggleComment();
     });
 
-    /* PART OF THE PRECEDING AND FOLLOWING CODE
-    const selectedLanguage = option.value;
-    editor.setOption("mode", getEditorMode(selectedLanguage));
- 
-
-    function getEditorMode(selectedLanguage) {
-      switch (selectedLanguage) {
-        case "Java":
-          return "text/x-java";
-        case "C++":
-          return "text/x-c++src";
-        case "Python":
-          return "text/x-python";
-        default:
-          return "text/x-c++src"; // Default to C++ mode for unknown languages
-      }
-    } */
 
     function getCommentSymbol(mode) {
       if(option.value=="java" || option.value=="csharp" || option.value=="go") {
@@ -401,7 +337,6 @@
       return "?"
       
     } 
-
 
 </script>
 </html>
