@@ -25,6 +25,10 @@ app.post("/compile", function(req, res) {
    if(lang == "no-lang") {
     res.send({output: "Please select a language first!"})
    }
+   console.log('Code:', code);
+   console.log('Input:', input);
+   console.log('Language:', lang);
+
 
    var request = require('request');
 
@@ -63,10 +67,13 @@ function (error, response, body) {
     } else {
         res.send(body)
     }
+
+
     
 })
  
 })
+
 
 
 app.listen(port, () => {
