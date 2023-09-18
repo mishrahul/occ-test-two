@@ -22,6 +22,9 @@ app.post("/compile", function(req, res) {
    var code=req.body.code
    var input=req.body.input
    var lang=req.body.lang
+   if(lang == "no-lang") {
+    res.send({output: "Please select a language first!"})
+   }
 
    var request = require('request');
 
