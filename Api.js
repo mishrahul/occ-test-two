@@ -7,7 +7,7 @@ const port = process.env.PORT || 8000;
 const ctid = process.env.IDC;
 const ctsk = process.env.SKC;
 
-
+console.log("at line 10")
 
 
 app.use(bodyP.json())
