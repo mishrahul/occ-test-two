@@ -17,8 +17,11 @@ app.get("/", function(req, res) {
     res.sendFile(__dirname + "/index.html")
 })
 
+console.log("past line 18")
 
 app.post("/compile", function(req, res) {
+    console.log("inside post block")
+
    var code=req.body.code
    var input=req.body.input
    var lang=req.body.lang
