@@ -231,7 +231,7 @@ opacity: 100%;
 .i-o {
   background-color: #dfeaf1;
   border:none;
-  font-family: monospace; 
+  font-family: "Source Code Pro", monospace; 
   font-size: 16px; 
   line-height: 1.2;
   resize: none; 
