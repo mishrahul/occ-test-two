@@ -231,9 +231,15 @@ opacity: 100%;
 .i-o {
   background-color: #dfeaf1;
   border:none;
+  font-family: monospace; 
+  white-space: pre; 
+  font-size: 16px; 
+  line-height: 1.2; 
 }
 .i-o:focus{
-  background-color: #ffffff;;
+  background-color: #ffffff;
+  border-color: #1a5096; /* Border color */
+  box-shadow: 0px 0px 0px 3px #1a5096;
 }
 
 
@@ -243,7 +249,7 @@ opacity: 100%;
   border: none;
   color: #fafafa;
   border-radius: 20px;
-  width: 200px;
+  width: 180px;
   height: 36.8px;
   position: absolute;
   transition: height 0.675s ease; 
@@ -266,7 +272,7 @@ opacity: 100%;
 }
 
 .lang-select:focus {
-  width: 200px; 
+  width: 180px; 
   max-height: 335px; /* higher maximum height for expansion on focus */
 }
 
@@ -307,7 +313,7 @@ opacity: 100%;
 
   .theme-div{
     position: relative; /* needed for positioning properties to work */
-    left: -180px;
+    left: -200px;
   }
 
   

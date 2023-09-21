@@ -7,8 +7,6 @@ const port = process.env.PORT || 8000;
 const ctid = process.env.IDC;
 const ctsk = process.env.SKC;
 
-console.log("at line 10")
-
 
 app.use(bodyP.json())
 app.use("/codemirror-5.65.14", express.static("codemirror-5.65.14"))
@@ -18,9 +16,7 @@ app.get("/", function(req, res) {
 })
 
 
-
 app.post("/compile", function(req, res) {
-    console.log("inside post block")
 
     var code=req.body.code
     var input=req.body.input
@@ -29,9 +25,7 @@ app.post("/compile", function(req, res) {
         res.send({output: "Please select a language first!"})
         return
     }
-    console.log('Code:', code);
-    console.log('Input:', input);
-    console.log('Language:', lang);
+
 
 
     var request = require('request');
