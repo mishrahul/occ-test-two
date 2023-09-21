@@ -232,14 +232,26 @@ opacity: 100%;
   background-color: #dfeaf1;
   border:none;
   font-family: monospace; 
-  white-space: pre; 
   font-size: 16px; 
-  line-height: 1.2; 
+  line-height: 1.2;
+  resize: none; 
+  overflow-x: hidden;
+  overflow-y: scroll;
+
 }
 .i-o:focus{
   background-color: #ffffff;
   border-color: #1a5096; /* Border color */
   box-shadow: 0px 0px 0px 3px #1a5096;
+}
+
+.i-o::-webkit-scrollbar {
+  width: 3px;
+}
+
+.i-o::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 3px;
 }
 
 
