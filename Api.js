@@ -7,7 +7,7 @@ const port = process.env.PORT || 8000;
 const ctid = process.env.IDC;
 const ctsk = process.env.SKC;
 
-console.log("at line 10")
+console.log(__dirname)
 
 
 app.use(bodyP.json())
@@ -15,9 +15,10 @@ app.use("/codemirror-5.65.14", express.static("codemirror-5.65.14"))
 app.use("/styles", express.static("styles"));
 app.get("/", function(req, res) {
     res.sendFile(__dirname + "/index.html")
+    console.log("at line 18")
 })
 
-console.log("past line 18")
+
 
 app.post("/compile", function(req, res) {
     console.log("inside post block")
