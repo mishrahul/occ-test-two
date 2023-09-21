@@ -252,6 +252,9 @@
       }
 
     })
+    const currentURL = window.location.href;
+    const compileURL = `${currentURL}compile`;
+
     var code;
     run.addEventListener("click", async function () {
       code={
@@ -261,7 +264,7 @@
       }
       console.log(code)
       try{
-        var oData = await fetch("http://localhost:8000/compile", {
+        var oData = await fetch(compileURL, {
         method:"POST",
         headers: {
           "Content-Type":"application/json"

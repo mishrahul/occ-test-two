@@ -14,10 +14,7 @@ app.use(bodyP.json())
 app.use("/codemirror-5.65.14", express.static("codemirror-5.65.14"))
 app.use("/styles", express.static("styles"));
 app.get("/", function(req, res) {
-
-    res.sendFile(__dirname + "/index.html")
-    console.log(__dirname + "/index.html")
-    
+    res.sendFile(__dirname + "/index.html")    
 })
 
 
