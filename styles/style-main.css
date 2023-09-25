@@ -10,29 +10,46 @@
     height: 2.3rem; 
 }
 
+.buttons-div {
+  display: flex;
+  width: 387.92px;
+  overflow: hidden;
+  justify-content: space-between;
+
+}
+
+
+
 
 
 .glow-on-hover {
     width: 2.3rem;
     height: 2.3rem;
     border-radius: 50%;
-    border: none;
-    outline: none;
-    color: #fff;
+    /* border: none;
+    outline: none; */
+    /* color: #fff; */
     background: #ffe608;
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
+    /* cursor: pointer; */
+    z-index: 10;
     background-image: url('run3_img1.png');
     background-size: 50% 50%; 
     background-repeat: no-repeat;
-    background-position: 55% center;
+    background-position: 60% center;
+
 }
 
-.glow-on-hover:before {
+.glow-on-hover:hover{
+  background-color: #fffb08;
+
+  
+}
+
+
+ /* .glow-on-hover:before {
     content: '';
     background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-    position: absolute;
+    position: relative;
     top: -2px;
     left:-2px;
     background-size: 400%;
@@ -52,7 +69,7 @@
     background-image: url('run3_img1.png');
     background-size: 50% 50%; 
     background-repeat: no-repeat;
-    background-position: 55% center;
+    background-position: 60% center;
 
 }
 
@@ -61,7 +78,7 @@
     background-image: url('run3_img1.png');
     background-size: 50% 50%; 
     background-repeat: no-repeat;
-    background-position: 55% center;
+    background-position: 60% center;
 }
 
 .glow-on-hover:hover:before {
@@ -71,7 +88,7 @@
 .glow-on-hover:after {
     z-index: 1;
     content: '';
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 100%;
     background: #ffe608;
@@ -81,14 +98,14 @@
     background-image: url('run3_img1.png');
     background-size: 50% 50%; 
     background-repeat: no-repeat;
-    background-position: 55% center;
+    background-position: 60% center;
 }
 
 @keyframes glowing {
     0% { background-position: 0 0; }
     50% { background-position: 400% 0; }
     100% { background-position: 0 0; }
-}
+}  */
 
 .cm-btn{
   background-color: #1faa8c;
@@ -111,6 +128,7 @@
 .ud-btn:hover{
     background-color: #c92020;
  }
+ 
 
 
 
@@ -145,7 +163,7 @@
   background-image: url('rf_img1.png');
   background-size: 50% 50%;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 55% center;
 }
 
 .rf-btn:hover{
@@ -206,8 +224,7 @@
   color: black;
 }
 
-/* the animations */
-/* fade */
+
 .tooltip.fade:after,
 .tooltip.fade:before {
   transform: translate3d(0,-10px,0);
@@ -254,6 +271,9 @@ opacity: 100%;
   border-radius: 3px;
 }
 
+.lang-div{
+  max-width: 180px;
+}
 
 
 .lang-select {
@@ -268,7 +288,17 @@ opacity: 100%;
   overflow: hidden; 
   overflow-y: scroll;
   font-weight: bold;
+  min-width: 80px;
 } 
+
+@media screen and (max-width: 768px) {
+
+  .lang-select {
+    min-width: 80px; /* Reset the min-width for smaller screens if needed */
+    width: 100%; /* Expand to full width on smaller screens */
+  }
+}
+
 @keyframes langExpandSelect {
   0% {
     height: 36.8px; 
@@ -324,8 +354,9 @@ opacity: 100%;
 }
 
   .theme-div{
-    position: relative; /* needed for positioning properties to work */
-    left: -200px;
+    /* position: fixed; 
+    left: -10px; */
+    min-width: 350px;
   }
 
   
@@ -341,8 +372,20 @@ opacity: 100%;
     transition: height 0.65s ease; /* a smooth width transition */
     overflow: hidden; /*  a smooth transition to max-height */
     overflow-y: scroll; /*  to enable vertical scrollbar */
+    min-width: 80px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    /* .theme-div {
+      left: 0;
+    } */
+    
+    .theme-select {
+      min-width: 80px; /* Reset the min-width for smaller screens if needed */
+      width: 100%;
+    }
+  }
 
-  } 
   @keyframes expandSelect {
     0% {
       height: 36.8px; 
@@ -396,6 +439,14 @@ opacity: 100%;
   .theme-select::-webkit-scrollbar-thumb {
     background: linear-gradient(to bottom, #b2dfdb, #6cc1e2);
         border-radius: 8px;
+  }
+
+
+  video {
+    width: 32px;
+    height: 32px;
+    display: none;
+    padding: 0px 0px 5px 5px;
   }
 
 

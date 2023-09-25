@@ -50,30 +50,29 @@
 <div class="row m-3">
   <div class="col">
     <div class="d-flex justify-content-between mb-2 bg-dark rounded-pill p-2" style="height: 52.8px;">
-      <div class="col-12 w-25" style="height: 100%; position: relative;">
-        <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
-        <select class="form-select lang-select" id="inlineFormSelectPref" onfocus='this.size=6;' onblur='this.size=1;' 
-        onchange='this.size=1; this.blur();' style="z-index: 100;">
-          <option selected value="no-lang">Select language</option>
-          <option value="csharp"> C# </option>
-          <option value="cpp17"> C++ </option>
-          <option value="fortran"> Fortran </option>
-          <option value="go"> GO lang </option>
-          <option value="java"> Java </option>
-          <option value="python3"> Python 3 </option>
-          <option value="ruby"> Ruby </option>
-          <option value="scala"> Scala </option>
-          <option value="vbn"> VB.Net </option>
-
-        </select>
-      </div>
-      <div class="theme-div" style="height: 100%; position: relative;">
-        <label class="visually-hidden" for="themeSelect">Select Theme</label>
-        <select class="form-select theme-select" id="themeSelect"  onfocus='this.size=7;' onblur='this.size=1;' 
-        onchange='this.size=1; this.blur();' style="z-index: 100;">
-        </select>
-      </div>
-      <div>
+      <!-- <div class="row">  -->
+        <div class="col-12 w-25 lang-div" style="height: 100%; position: relative;">
+          <select class="form-select lang-select" id="inlineFormSelectPref" onfocus='this.size=6;' onblur='this.size=1;' 
+          onchange='this.size=1; this.blur();' style="z-index: 100;">
+            <option selected value="no-lang">Select language</option>
+            <option value="csharp"> C# </option>
+            <option value="cpp17"> C++ </option>
+            <option value="fortran"> Fortran </option>
+            <option value="go"> GO lang </option>
+            <option value="java"> Java </option>
+            <option value="python3"> Python 3 </option>
+            <option value="ruby"> Ruby </option>
+            <option value="scala"> Scala </option>
+            <option value="vbn"> VB.Net </option>
+          </select>
+        </div>
+        <div class="col-12 w-25 theme-div" style="height: 100%; position: relative;">
+          <select class="form-select theme-select" id="themeSelect"  onfocus='this.size=7;' onblur='this.size=1;' 
+          onchange='this.size=1; this.blur();' style="z-index: 100;">
+          </select>
+        </div>
+      <!-- </div> -->
+      <div class="buttons-div">
         <button type="button" id="run" class="btn glow-on-hover px-2 mx-2"> <span class="tooltip fade" data-title="Run code"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </button>
         <button type="button" id="toggleCommentBtn" class="btn cm-btn px-2 mx-2">  <span class="tooltip fade" data-title="Comment selection"> <h6 style="margin-bottom: 3px; font-weight: 700;"> // </h6> </span> </button>
         <button type="button" id="undoBtn" class="btn ud-btn px-2 mx-2"> <span class="tooltip fade" data-title="Undo"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </button>
@@ -91,7 +90,13 @@
       <textarea type="text" id="input" class="i-o form-control rounded-4 h-75"> </textarea>
     </div>
     <div class="h-75">
+      <div style="display: flex;
+      align-items: center;">
       <label for="Output" class="text-light mb-2"> OUTPUT </label>
+      <video id="loadingAnimation" autoplay loop>
+        <source src="styles/ldg2.mp4" type="video/mp4">
+      </video>
+      </div>
       <textarea type="text" id="output" class="i-o form-control rounded-4 h-75" readonly> </textarea>
     </div>
   </div>
@@ -129,6 +134,24 @@
     var run = document.getElementById("run")
 
     editor.setSize(0.7*width, "500")
+
+
+    const loadingVid = document.getElementById('loadingAnimation');
+
+    function startLoadingAnimation() {
+      if (loadingVid) {
+        loadingVid.style.display = 'block'; // Show the video
+        loadingVid.play(); // Play the video
+      }
+    }
+
+    function stopLoadingAnimation() {
+      if (loadingVid) {
+        loadingVid.pause(); // Pause the video
+        loadingVid.style.display = 'none'; // Hide the video
+      }
+  }
+
 
 
     const themeOptions = [
@@ -177,8 +200,6 @@
     function changeTextareaColor(textarea) {
       textarea.style.backgroundColor ="white" ;
     }
-
-
 
     function clearAll(){ 
       editor.setValue("");
@@ -264,6 +285,7 @@
 
     var code;
     run.addEventListener("click", async function () {
+      startLoadingAnimation()
       code={
         code:editor.getValue(),
         input: input.value,
@@ -286,6 +308,7 @@
       try{
         var d = await oData.json()
         if(d.output){
+          stopLoadingAnimation()
           changeTextareaColor(output)
         }
         output.value = d.output

@@ -26,6 +26,11 @@ app.post("/compile", function(req, res) {
         return
     }
 
+    if(lang != "no-lang" && code == "") {
+        res.send({output: "Cannot process null!"})
+        return
+    }
+
 
 
     var request = require('request');
