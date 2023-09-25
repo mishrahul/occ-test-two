@@ -377,8 +377,10 @@ opacity: 100%;
   
   @media screen and (max-width:1002px) {
     .theme-div {
-     min-width: 180px;
+     min-width: 80px;
+     max-width: 180px;
      width: 100%;
+     position: absolute;
     }
     
     .theme-select {
