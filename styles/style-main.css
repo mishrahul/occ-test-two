@@ -375,10 +375,11 @@ opacity: 100%;
     min-width: 80px;
   }
   
-  @media screen and (max-width: 768px) {
-    /* .theme-div {
-      left: 0;
-    } */
+  @media screen and (max-width:1002px) {
+    .theme-div {
+     min-width: 180px;
+     width: 100%;
+    }
     
     .theme-select {
       min-width: 80px; /* Reset the min-width for smaller screens if needed */
