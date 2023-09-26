@@ -3,3 +3,7 @@
 .vscode/
 
 node_modules/
+
+old-apidotjs.txt
+
+.styles/Thumbs.db
