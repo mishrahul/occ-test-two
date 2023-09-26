@@ -30,14 +30,14 @@ app.post("/compile", function(req, res) {
         res.send({output: "Cannot process null!"})
         return
     }
-
+    console.log(input)
 
 
     var request = require('request');
 
     var program = {
         script : code,
-        stdn: input,
+        stdin: input,
         language: lang,
         get versionIndex() {
             if (this.languaige === "python3") {
@@ -53,6 +53,7 @@ app.post("/compile", function(req, res) {
         clientId: ctid,
         clientSecret: ctsk
     };
+
     request({
         url: 'https://api.jdoodle.com/v1/execute',
         method: "POST",
