@@ -26,7 +26,7 @@ Live version can be accessed at: https://online-code-compiler.cyclic.cloud/
 5. Copy code to the clipboard using the provided buttons.
 
 ## Languages supported
-C#, C++, Fortran, GO Lang, Java, Python, Ruby, Scala, VB.Net
+C#, C++, Fortran, GO Lang, Java, Python, Ruby, Scala, VB.Net. Scope for more languages.
 
 ## Technologies
 * HTML & CSS
