@@ -9,7 +9,7 @@
   color: black;
   direction: ltr;
   font-size:18px;
-  border-radius: 22px;
+  border-radius: 16px;
   box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
 
@@ -185,15 +185,16 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
   display: none;
   outline: none;
 }
+
 .CodeMirror-vscrollbar {
   right: 0; top: 0;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 .CodeMirror-hscrollbar {
   bottom: 0; left: 0;
   overflow-y: hidden;
-  overflow-x: scroll;
+  overflow-x: hidden;
 }
 .CodeMirror-scrollbar-filler {
   right: 0; bottom: 0;

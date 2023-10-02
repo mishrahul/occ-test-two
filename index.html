@@ -53,7 +53,7 @@
         <div class="col-12 w-25 lang-div" style="height: 100%; position: relative;">
           <select class="form-select lang-select" id="inlineFormSelectPref" onfocus='this.size=6;' onblur='this.size=1;' 
           onchange='this.size=1; this.blur();' style="z-index: 100;">
-            <option selected value="no-lang">Select language</option>
+            <option selected value="no-lang"> Language </option>
             <option value="csharp"> C# </option>
             <option value="cpp17"> C++ </option>
             <option value="fortran"> Fortran </option>
@@ -71,21 +71,21 @@
           </select>
         </div>
       <div class="buttons-div">
-        <button type="button" id="run" class="btn glow-on-hover px-2 mx-2"> <span class="tooltip fade" data-title="Run code"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </button>
-        <button type="button" id="toggleCommentBtn" class="btn cm-btn px-2 mx-2">  <span class="tooltip fade" data-title="Comment selection"> <h6 style="margin-bottom: 3px; font-weight: 700;"> // </h6> </span> </button>
-        <button type="button" id="undoBtn" class="btn ud-btn px-2 mx-2"> <span class="tooltip fade" data-title="Undo"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </button>
-        <button type="button" id="redoBtn" class="btn rd-btn px-2 mx-2"> <span class="tooltip fade" data-title="Redo"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </button>
-        <button type="button" class="btn cp-btn px-2 mx-2" onclick="copyEditorToClipboard()"> <span class="tooltip fade" data-title="Copy"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </button>
-        <button type="button" class="btn rf-btn px-2 mx-2" onclick="clearAll()"> <span class="tooltip fade" data-title="Refresh"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </button>  
-        <button type="button" class="btn cr-btn px-2 ml-2" onclick="clearVal()"> <span class="tooltip fade" data-title="Clear editor"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </button>
+        <button type="button" id="run" class="btn run-btn px-2"> <span class="tooltip fade" data-title="Run code"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </button>
+        <button type="button" id="toggleCommentBtn" class="btn cm-btn px-2">  <span class="tooltip fade" data-title="Comment selection"> <h6 style="margin-bottom: 3px; font-weight: 700;"> // </h6> </span> </button>
+        <button type="button" id="undoBtn" class="btn ud-btn px-2"> <span class="tooltip fade" data-title="Undo"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </button>
+        <button type="button" id="redoBtn" class="btn rd-btn px-2"> <span class="tooltip fade" data-title="Redo"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </button>
+        <button type="button" class="btn cp-btn px-2" onclick="copyEditorToClipboard()"> <span class="tooltip fade" data-title="Copy"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </button>
+        <button type="button" class="btn rf-btn px-2" onclick="clearAll()"> <span class="tooltip fade" data-title="Refresh"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </button>  
+        <button type="button" class="btn cr-btn px-2 ml-0" onclick="clearVal()"> <span class="tooltip fade" data-title="Clear editor"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </button>
       </div> 
     </div>
       <textarea type="text" id="editor" class="form-control"> </textarea>
   </div>
-  <div class="col d-flex flex-column rounded-5 bg-dark px-4">
+  <div class="col d-flex flex-column rounded-4 bg-dark px-4">
     <div class="h-75">
-      <label for="Input" class="text-light mt-4 mb-2"> INPUT </label>
-      <textarea type="text" id="input" class="i-o form-control rounded-4 h-75"></textarea>
+      <label for="Input" class="text-light mt-3 mb-2"> INPUT </label>
+      <textarea type="text" id="input" class="i-o form-control rounded-3 h-75"></textarea>
     </div>
     <div class="h-75">
       <div style="display: flex;
@@ -95,7 +95,7 @@
         <source src="styles/ldg2.mp4" type="video/mp4">
       </video>
       </div>
-      <textarea type="text" id="output" class="i-o form-control rounded-4 h-75" readonly> </textarea>
+      <textarea type="text" id="output" class="i-o form-control rounded-3 h-75" readonly> </textarea>
     </div>
   </div>
 </div>
@@ -198,11 +198,16 @@
     function changeTextareaColor(textarea) {
       textarea.style.backgroundColor ="white" ;
     }
+    function changeTextareaColorRefresh(textarea) {
+      textarea.style.backgroundColor ="#dfeaf1" ;
+    }
+    
 
     function clearAll(){ 
       editor.setValue("");
       input.value="";
       output.value="";
+      changeTextareaColorRefresh(output)
     }
 
     function clearVal(){ 
