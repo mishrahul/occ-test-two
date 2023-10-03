@@ -30,8 +30,6 @@ app.post("/compile", function(req, res) {
         res.send({output: "Cannot process null!"})
         return
     }
-    console.log(input)
-
 
     var request = require('request');
 
