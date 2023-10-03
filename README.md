@@ -61,16 +61,16 @@ nodemon Api.js
 ## Screenshots
 
 ### Home page
-![main-screen-occ](https://github.com/mishrahul/occ-test-two/assets/145216845/b2c1d41b-66f2-4db2-aa9d-c666d271a608)
+![main-screen-occ](https://github.com/mishrahul/occ-test-two/assets/145216845/3d592ea3-7cd3-404e-9813-a0b81484af85)
 
 ### Code with output
-![main-screen-w-op](https://github.com/mishrahul/occ-test-two/assets/145216845/e2696b37-6aa8-493b-8399-88e481ad963e)
+![main-screen-occ-w-op](https://github.com/mishrahul/occ-test-two/assets/145216845/4759dcf8-e7c7-4890-aba2-f95bbbb30d48)
 
 ### Language options
-![lang-options](https://github.com/mishrahul/occ-test-two/assets/145216845/4f0b7fa7-f065-41de-988f-166a4a1efe14)
+![languages-occ](https://github.com/mishrahul/occ-test-two/assets/145216845/bfa5f6d3-739e-4711-a43e-a5c9cb3df640)
 
 ### Theme options
-![theme-options](https://github.com/mishrahul/occ-test-two/assets/145216845/09f52205-6b7e-43c0-bd36-beefb32d43b8)
+![themes-occ](https://github.com/mishrahul/occ-test-two/assets/145216845/f8f70c3d-3dec-49c3-9e8e-d347b444bc24)
 
 
 ## Support
