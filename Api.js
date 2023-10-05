@@ -38,11 +38,7 @@ app.post("/compile", function(req, res) {
         stdin: input,
         language: lang,
         get versionIndex() {
-            if (this.languaige === "python3") {
-                return "4";
-            } else if (this.language === "java") {
-                return "4";
-            } else if (this.language === "cpp17") {
+            if (this.language === "cpp17") {
                 return "1";
             } else {
                 return "4";
