@@ -36,7 +36,6 @@ C#, C++, Fortran, GO Lang, Java, Python, Ruby, Scala, VB.Net. Scope for more lan
 * JDoodle API for compilation
 
 ## Requirements
-* axios 1.5.0
 * body-parser 1.20.2
 * dotenv 16.3.1
 * express 4.18.2
@@ -50,7 +49,7 @@ C#, C++, Fortran, GO Lang, Java, Python, Ruby, Scala, VB.Net. Scope for more lan
   
   for example
   ```
-  npm install axios
+  npm install express
   ```
 
 ## Starting the server
